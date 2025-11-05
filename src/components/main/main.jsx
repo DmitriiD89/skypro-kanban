@@ -1,15 +1,17 @@
-export default function Main(){
+import Card from "../card/card"
+export default function Main({loading}){
     return (
         <main className="main">
 			<div className="container">
-				
+            {loading ? <p className="column__title">Данные загружаются</p> : 
 				<div className="main__block">
 					<div className="main__content">
 						<div className="main__column column">
 							<div className="column__title">
 								<p>Без статуса</p>
 							</div>
-							<div className="cards">
+                            <Card />
+                                {/* <div className="cards">
 								<div className="cards__item">
 									<div className="cards__card card">
 										<div className="card__group">
@@ -44,7 +46,10 @@ export default function Main(){
 											</div>
 										</div>
 									</div>
-								</div>
+                            
+
+                            </div>
+                            
 							
 								<div className="cards__item">
 									<div className="cards__card card">
@@ -189,8 +194,9 @@ export default function Main(){
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>						
+							</div> */}
+						</div>
+                        					
 						<div className="main__column">
 							<div className="column__title">
 								<p>Нужно сделать</p>
@@ -435,7 +441,7 @@ export default function Main(){
 						
 					</div>
 				
-				</div>
+				</div>}
 			</div>
 		</main>
     )
