@@ -17,11 +17,12 @@ export const Column = ({ name, cards=[] }) => {
     const className = {"Web Design" : "_orange",
         "Research" : "_green",
         "Copywriting" : "_purple",            
-}   
+};   
+    
     
     return (
         <MainColumn><ColumnTitle><ColumnTitleP><p>{name}</p></ColumnTitleP></ColumnTitle>
-        {cardList.map((item) => (
+        {cards = cardList.map((item) => (
             <CardItem>
                 <CardsCard>
                     <CardGroup>
