@@ -1,4 +1,4 @@
-import { cardList } from "../../data"
+
 import { MainColumn,
          ColumnTitle,
          ColumnTitleP,
@@ -13,17 +13,16 @@ import { MainColumn,
 
  } from "./column.styled"
 
-export const Column = ({ name, cards=[] }) => {
+export const Column = ({ name, cards }) => {
     const className = {"Web Design" : "_orange",
         "Research" : "_green",
         "Copywriting" : "_purple",            
 };   
     
-    
     return (
         <MainColumn><ColumnTitle><ColumnTitleP><p>{name}</p></ColumnTitleP></ColumnTitle>
-        {cards = cardList.map((item) => (
-            <CardItem>
+        {cards.map((item) => (
+            <CardItem key={item.id}>
                 <CardsCard>
                     <CardGroup>
                     <div className={`card__theme ${className[item.topic]}`}>

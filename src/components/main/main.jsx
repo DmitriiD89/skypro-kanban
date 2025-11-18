@@ -3,7 +3,7 @@ import { Column } from "../column/column"
 import { MainClass, Container, MainBlock, MainContent, } from "./main.styled"
 
 export default function Main({loading}){
-    const columnNames=['Без Статуса','Нужно сделать','В работе','Тестирование','Готово']
+    const columnNames=['Без статуса','Нужно сделать','В работе','Тестирование','Готово']
     return (
 		<MainClass>
 			<Container>
