@@ -45,5 +45,7 @@ color: #000;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.14px;
+  display: flex;
+  justify-content: space-between;
   `;
 
