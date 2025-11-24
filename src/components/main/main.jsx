@@ -1,5 +1,6 @@
 import { cardList } from "../../data"
 import { Column } from "../column/Column"
+import { ColumnTitleP } from "../column/column.styled"
 import { MainClass, Container, MainBlock, MainContent, } from "./main.styled"
 
 export default function Main({loading}){
@@ -7,7 +8,7 @@ export default function Main({loading}){
     return (
 		<MainClass>
 			<Container>
-			{loading ? <p className="column__title">Данные загружаются</p> : 
+			{loading ? <ColumnTitleP>Данные загружаются</ColumnTitleP> : 
 				<MainBlock>
 					<MainContent>
 					{columnNames.map((columnName) => (

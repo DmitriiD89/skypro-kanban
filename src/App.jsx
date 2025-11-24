@@ -5,6 +5,7 @@ import Header from './components/header/header'
 import Main from './components/main/main'
 import PopBrowse from './components/popBrowse/popBrowse'
 import { useEffect, useState } from 'react'
+import { GlobalStyle } from './GlobalStyles'
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -15,6 +16,7 @@ function App() {
   },[]);
   return (
     <>
+    <GlobalStyle />
      <div className="wrapper">
 		
 		<PopExit/>
