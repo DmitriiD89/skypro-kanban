@@ -7,7 +7,7 @@ export default function Header() {
     <HeaderBlock>
       <HeaderLogo>
       <a href="" target="_self">
-            <img src="images/logo.png" alt="logo" />
+            <img src="/public/images/logo.png" alt="logo" />
           </a>
       </HeaderLogo>
       {/* <HeaderLogo>
@@ -26,7 +26,7 @@ export default function Header() {
             className="header__pop-user-set pop-user-set"
             id="user-set-target"
           >
-            {/* <a href="">x</a> */}
+            <a href="">x</a>
             <PopUserSetName>Ivan Ivanov</PopUserSetName>
             <PopUserSetMail>ivan.ivanov@gmail.com</PopUserSetMail>
             <PopUserSetTheme>
