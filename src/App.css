@@ -713,7 +713,7 @@ html,
 .header__btn-main-new a {
   color: #FFFFFF;
 }
-.header__user {
+/* .header__user {
   height: 20px;
   display: flex;
   flex-wrap: nowrap;
@@ -734,11 +734,11 @@ html,
   transform: rotate(-45deg);
   margin: -6px 0 0 5px;
   padding: 0;
-}
-.header__pop-user-set {
+} */
+/* .header__pop-user-set {
   display: none;
   position: absolute;
-  top: 61px;
+  top: 71px;
   right: 0;
   width: 213px;
   height: 205px;
@@ -749,7 +749,7 @@ html,
   padding: 34px;
   text-align: center;
   z-index: 2;
-}
+} */
 
 .cards {
   width: 100%;
