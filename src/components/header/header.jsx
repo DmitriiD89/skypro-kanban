@@ -1,10 +1,13 @@
 import { HeaderBlock, HeaderClass, HeaderNav, HeaderLogo, PopUserSetMail, PopUserSetName, PopUserSetTheme, HeaderUser, HeaderPopUserSet } from "./header.styled"
 import { Container } from "../main/main.styled"
-export default function Header() {
- const [isOpen, setIsOpen] = useState(false)
+
+const [isOpen, setIsOpen] = useState(false)
  const onClickHandler = () => {
   setIsOpen(!isOpen)
  }
+
+ export default function Header() {
+ 
  return(
 <HeaderClass>
   <Container>
