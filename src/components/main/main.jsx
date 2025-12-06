@@ -11,8 +11,8 @@ export default function Main({loading}){
 			{loading ? <ColumnTitleP>Данные загружаются</ColumnTitleP> : 
 				<MainBlock>
 					<MainContent>
-					{columnNames.map((columnName) => (
-					<Column name={columnName}
+					{columnNames.map((columnName,index) => (
+					<Column key={index} name={columnName}
 						cards={cardList.filter((card)=>card.status === columnName)} ></Column>
 				))}
 					</MainContent>	
