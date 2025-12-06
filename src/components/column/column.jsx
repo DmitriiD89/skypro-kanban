@@ -9,7 +9,7 @@ export const Column = ({ name, cards }) => {
     
     
     return (
-        <MainColumn><ColumnTitle><ColumnTitleP><p>{name}</p></ColumnTitleP></ColumnTitle>
+        <MainColumn><ColumnTitle><ColumnTitleP>{name}</ColumnTitleP></ColumnTitle>
         {cards.map((item) => (
             <Card
             key={item.id}

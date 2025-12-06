@@ -100,7 +100,7 @@ export const PopUserSetTheme = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  p {
+  .& {
     color: #000;
     font-size: 14px;
     line-height: 21px;
@@ -135,8 +135,21 @@ export const PopUserSetTheme = styled.div`
     left: 12px;
   }
 `;
+export const PopUserSetButton = styled.button`
+width: 72px;
+  height: 30px;
+  background: transparent;
+  color: #565EEF;
+  border-radius: 4px;
+  border: 1px solid #565EEF;
+  margin-top: 30px;
+  
+  &:hover{
+  background-color: #33399b;
+  color: #FFFFFF;}
+`;
 export const HeaderPopUserSet = styled.div`
-  display: none;
+  
   position: absolute;
   top: 71px;
   right: 0;
