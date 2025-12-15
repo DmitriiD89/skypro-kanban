@@ -6,6 +6,7 @@ import Main from './components/main/main'
 import PopBrowse from './components/popBrowse/popBrowse'
 import { useEffect, useState } from 'react'
 import { GlobalStyle } from './GlobalStyles'
+import { Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -17,18 +18,19 @@ function App() {
   return (
     <>
     <GlobalStyle />
+    
+    <Routes>
+    
      <div className="wrapper">
-		
-		<PopExit/>
-
-		<PopNewCard />
-
-		<PopBrowse />
-
-		<Header />
-		<Main loading={loading} />
-		
-    </div>
+		<Route path="/" element={<Main loading={loading}/>}/>
+		<Route path='/'element={<PopExit/>}/> 
+    <Route path='/'element={<PopNewCard/>}/> 
+    <Route path='/'element={<PopBrowse/>}/> 
+    <Route path='/'element={<Header/>}/> 
+		</div>
+    </Routes>
+    
+   
     </>
   )
 }
