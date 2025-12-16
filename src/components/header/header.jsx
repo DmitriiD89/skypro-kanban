@@ -1,9 +1,10 @@
 import { HeaderBlock, HeaderClass, HeaderNav, HeaderLogo, PopUserSetMail, PopUserSetName, PopUserSetTheme, HeaderUser, HeaderPopUserSet, PopUserSetButton } from "./header.styled"
 import { Container } from "../main/main.styled"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 
- export default function Header() {
+ function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const onClickHandler = () => {
    setIsOpen(!isOpen)
@@ -14,9 +15,9 @@ import { useState } from "react"
   <Container>
     <HeaderBlock>
       <HeaderLogo>
-      <a href="" target="_self">
+      <Link to='/' target="_self">
             <img src="/public/images/logo.png" alt="logo" />
-          </a>
+          </Link>
       </HeaderLogo>
       {/* <HeaderLogo>
       <a href="" target="_self">
@@ -40,7 +41,8 @@ import { useState } from "react"
             <input type="checkbox" className="checkbox" name="checkbox" />
             </PopUserSetTheme>
             <PopUserSetButton>
-            Выйти
+              <Link to='/exit'>Выйти</Link>
+            
             </PopUserSetButton>
             {/* <button type="button" className="_hover03">
               <a href="#popExit">Выйти</a>
@@ -54,3 +56,4 @@ import { useState } from "react"
 </HeaderClass>
   )
 }
+export default Header
