@@ -10,8 +10,8 @@ export function Register({setIsAuth}){
          <h2>Зарегистрируйтесь</h2>
          </PopRegisterTtl>
         <PopRegisterForm>
-        <PopRegisterNo onClick={()=>setIsAuth(true)}><Link to='/register'>Зарегистрироваться</Link></PopRegisterNo>                    
-        <PopRegisterYes ><Link to='/'>Авторизоваться</Link></PopRegisterYes>
+        <PopRegisterNo onClick={()=>setIsAuth(true)}><Link to='/'>Зарегистрироваться</Link></PopRegisterNo>                    
+        <PopRegisterYes ><Link to='/login'>Авторизоваться</Link></PopRegisterYes>
         </PopRegisterForm>
                
          </PopRegisterBlock>
