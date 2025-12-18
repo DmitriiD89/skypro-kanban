@@ -1,6 +1,8 @@
 import { cardList } from "../../data"
 import { Column } from "../column/Column"
 import { ColumnTitleP } from "../column/column.styled"
+import PopBrowse from "../popBrowse/popBrowse"
+
 import { MainClass, Container, MainBlock, MainContent, } from "./main.styled"
 
 export default function Main({loading}){
@@ -19,8 +21,9 @@ export default function Main({loading}){
 			</MainBlock>
 				}
 			</Container>
+			<PopBrowse/>	
 			</MainClass>
-		
+
         
     )
 }

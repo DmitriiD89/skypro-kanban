@@ -1,24 +1,39 @@
-import { Link } from "react-router-dom"
-import { PopRegister, PopRegisterBlock, PopRegisterContainer, PopRegisterForm, PopRegisterNo, PopRegisterTtl, PopRegisterYes } from "./Register.styled"
+import { Link } from "react-router-dom";
+import {
+  PopRegister,
+  PopRegisterBlock,
+  PopRegisterContainer,
+  PopRegisterForm,
+  PopRegisterInputMail,
+  PopRegisterInputName,
+  PopRegisterInputPassword,
+  PopRegisterNo,
+  PopRegisterTtl,
+  PopRegisterYes,
+} from "./Register.styled";
 
-export function Register({setIsAuth}){
-    return (
-       <PopRegister>
-         <PopRegisterContainer>
-         <PopRegisterBlock>
-         <PopRegisterTtl>
-         <h2>Зарегистрируйтесь</h2>
-         </PopRegisterTtl>
-        <PopRegisterForm>
-        <PopRegisterNo onClick={()=>setIsAuth(true)}><Link to='/'>Зарегистрироваться</Link></PopRegisterNo>                    
-        <PopRegisterYes ><Link to='/login'>Авторизоваться</Link></PopRegisterYes>
-        </PopRegisterForm>
-               
-         </PopRegisterBlock>
-         </PopRegisterContainer>
-         
+export function Register({ setIsAuth }) {
+  return (
+    <PopRegister>
+      <PopRegisterContainer>
+        <PopRegisterBlock>
+          <PopRegisterTtl>
+            <h2>Регистрация</h2>
+          </PopRegisterTtl>
+          <PopRegisterInputName placeholder="Имя" />
+          <PopRegisterInputMail placeholder="Эл. почта" />
+          <PopRegisterInputPassword placeholder="Пароль" />
 
-       </PopRegister>
-       
-    )
+          <PopRegisterForm>
+            <PopRegisterYes onClick={() => setIsAuth(true)}>
+              <Link to="/">Зарегистрироваться</Link>
+            </PopRegisterYes>
+          </PopRegisterForm>
+          <PopRegisterNo>
+              Уже есть аккаунт? <Link to="/login"> Войдите здесь</Link>
+            </PopRegisterNo>
+        </PopRegisterBlock>
+      </PopRegisterContainer>
+    </PopRegister>
+  );
 }

@@ -19,14 +19,10 @@ import { Link } from "react-router-dom"
             <img src="/public/images/logo.png" alt="logo" />
           </Link>
       </HeaderLogo>
-      {/* <HeaderLogo>
-      <a href="" target="_self">
-            <img src="images/logo_dark.png" alt="logo" />
-          </a>
-      </HeaderLogo> */}
+      
        <HeaderNav>
        <button className="header__btn-main-new _hover01" id="btnMainNew">
-            <a href="#popNewCard">Создать новую задачу</a>
+            <Link to='/new-card'>Создать новую задачу</Link>
           </button>
           <HeaderUser onClick={onClickHandler} href="#user-set-target">Ivan Ivanov</HeaderUser>
           {/* <a href="#user-set-target" className="header__user _hover02">

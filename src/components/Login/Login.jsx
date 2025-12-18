@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { PopLogin, PopLoginBlock, PopLoginContainer, PopLoginForm, PopLoginNo, PopLoginTtl, PopLoginYes } from "./login.styled";
+import { PopLogin, PopLoginBlock, PopLoginContainer, PopLoginForm, PopLoginNo, PopLoginTtl, PopLoginYes, PopLoginInputMail, PopLoginInputPassword } from "./login.styled";
 
 export function Login({setIsAuth}){
     return (
@@ -7,13 +7,14 @@ export function Login({setIsAuth}){
          <PopLoginContainer>
          <PopLoginBlock>
          <PopLoginTtl>
-         <h2>Авторизуйтесь</h2>
+         <h2>Вход</h2>
          </PopLoginTtl>
+         <PopLoginInputMail placeholder="Эл. почта"/>
+         <PopLoginInputPassword placeholder="Пароль"/>
         <PopLoginForm>
-        <PopLoginYes onClick={()=>setIsAuth(true)}><Link to='/'>Авторизоваться</Link></PopLoginYes>
-        <PopLoginNo><Link to='/register'>Зарегистрироваться</Link></PopLoginNo>                    
+        <PopLoginYes onClick={()=>setIsAuth(true)}><Link to='/'>Войти</Link></PopLoginYes>           
         </PopLoginForm>
-               
+        <PopLoginNo>Нужно зарегистрироваться?<Link to='/register'>Регистрируйтесь здесь</Link></PopLoginNo> 
          </PopLoginBlock>
          </PopLoginContainer>
          

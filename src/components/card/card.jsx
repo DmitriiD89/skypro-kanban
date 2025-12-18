@@ -7,6 +7,7 @@ import {CardItem,
     CardContent,
     CardTitle,
     CardDate,} from './card.styled'
+import PopBrowse from '../popBrowse/popBrowse';
 
   export const Card = ({id, topic, title, date}) => {
     const className = {"Web Design" : "_orange",
@@ -14,7 +15,9 @@ import {CardItem,
         "Copywriting" : "_purple",            
 };     
     return (
+        <>
   <CardItem key={id}>
+    
                 <CardsCard>
                     <CardGroup>
                     <div className={`card__theme ${className[topic]}`}>
@@ -51,5 +54,7 @@ import {CardItem,
                 </CardsCard>
                
             </CardItem>
+           
+            </>
     )
   }

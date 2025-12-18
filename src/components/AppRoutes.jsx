@@ -9,6 +9,7 @@ import { GlobalStyle } from "../GlobalStyles";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { MainPage } from "../pages/MainPage/MainPage";
 import { NotFoundPage } from "../pages/NotFoundPage/NotFoundPage";
+import { NewCardPage } from "../pages/NewCardPage/NewCardPage";
 
 function AppRoutes() {
   const [isAuth, setIsAuth] = useState(false)
@@ -18,6 +19,7 @@ function AppRoutes() {
       setLoading(false);
     }, 3000);
   }, []);
+  
   
   const ProtectedRoute = ({children}) => {
     if (isAuth){
@@ -35,8 +37,9 @@ function AppRoutes() {
             <Route path='*' element={<NotFoundPage/>}/>
             {/* Публичные пути */}
             <Route path="/" element={<ProtectedRoute><MainPage loading={loading}/></ProtectedRoute>} />
+            <Route path='/new-card' element={<ProtectedRoute><MainPage loading={loading}/><NewCardPage/></ProtectedRoute>}/>
             <Route path='/card/:id' element={<ProtectedRoute><CardPage/></ProtectedRoute>}/>
-            <Route path='/exit' element={<ProtectedRoute><ExitPage setIsAuth={setIsAuth}/></ProtectedRoute>}/>
+            <Route path='/exit' element={<ProtectedRoute><MainPage loading={loading}/><ExitPage setIsAuth={setIsAuth}/></ProtectedRoute>}/>
            
         </Routes>
         </div>

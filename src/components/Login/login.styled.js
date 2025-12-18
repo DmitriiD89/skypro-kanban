@@ -39,6 +39,9 @@ text-align: center;
   line-height: 30px;
   letter-spacing: -0.4px;
   margin-bottom: 20px;
+  width: 45;
+height: 30;
+
 `
 export const PopLoginForm = styled.form`
 width: 100%;
@@ -47,7 +50,7 @@ width: 100%;
   justify-content: space-between;
 `
 export const PopLoginYes = styled.button`
-  width: 153px;
+  width: 248px;
   height: 30px;
   background-color: #565EEF;
   border-radius: 4px;
@@ -61,30 +64,61 @@ export const PopLoginYes = styled.button`
   font-weight: 500;
   letter-spacing: -0.14px;
   color: #FFFFFF;
-  margin-right: 10px;
   
   &:hover{
   background-color: #33399b;
   }
 `
-export const PopLoginNo = styled.button`
- width: 153px;
-  height: 30px;
+export const PopLoginNo = styled.div`
+ 
+width: 248px;
+  height: 42px;
   background-color: transparent;
-  border-radius: 4px;
-  border: 0.7px solid var(--palette-navy-60, #565EEF);
-  outline: none;
+  
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  line-height: 21px;
-  font-weight: 500;
+  line-height: 150%;
+  font-weight: 400;
   letter-spacing: -0.14px;
-  color: #FFFFFF;
+  color: #94A6BE66;
+  margin-top: 20px;
   
   &:hover{
-  background-color: #33399b;
-  color: #FFFFFF;
+    text-decoration: inderline
+  
   }
+`;
+export const PopLoginInputMail = styled.input`
+border: 0.7px solid #94A6BE66;
+width: 249px;
+height: 30;
+angle: 0 deg;
+opacity: 1;
+border-radius: 8px;
+border-width: 0.7px;
+gap: 10px;
+padding-top: 8px;
+padding-right: 10px;
+padding-bottom: 8px;
+padding-left: 10px;
+margin-bottom: 7px;
+
 `
+export const PopLoginInputPassword = styled.input`
+border: 0.7px solid #94A6BE66;
+width: 249px;
+height: 30;
+angle: 0 deg;
+opacity: 1;
+border-radius: 8px;
+border-width: 0.7px;
+gap: 10px;
+padding-top: 8px;
+padding-right: 10px;
+padding-bottom: 8px;
+padding-left: 10px;
+margin-bottom: 20px;
+`;
