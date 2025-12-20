@@ -3,7 +3,6 @@ import {
   PopRegister,
   PopRegisterBlock,
   PopRegisterContainer,
-  PopRegisterForm,
   PopRegisterInputMail,
   PopRegisterInputName,
   PopRegisterInputPassword,
@@ -12,7 +11,7 @@ import {
   PopRegisterYes,
 } from "./Register.styled";
 
-export function Register({ setIsAuth }) {
+export function Register({ toggleAuth }) {
   return (
     <PopRegister>
       <PopRegisterContainer>
@@ -22,13 +21,13 @@ export function Register({ setIsAuth }) {
           </PopRegisterTtl>
           <PopRegisterInputName placeholder="Имя" />
           <PopRegisterInputMail placeholder="Эл. почта" />
-          <PopRegisterInputPassword placeholder="Пароль" />
+          <PopRegisterInputPassword placeholder="Пароль" type='password' />
 
-          <PopRegisterForm>
-            <PopRegisterYes onClick={() => setIsAuth(true)}>
+          
+            <PopRegisterYes onClick={toggleAuth}>
               <Link to="/">Зарегистрироваться</Link>
             </PopRegisterYes>
-          </PopRegisterForm>
+          
           <PopRegisterNo>
               Уже есть аккаунт? <Link to="/login"> Войдите здесь</Link>
             </PopRegisterNo>

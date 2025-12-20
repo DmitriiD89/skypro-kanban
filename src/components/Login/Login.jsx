@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
 import { PopLogin, PopLoginBlock, PopLoginContainer, PopLoginForm, PopLoginNo, PopLoginTtl, PopLoginYes, PopLoginInputMail, PopLoginInputPassword } from "./login.styled";
 
-export function Login({setIsAuth}){
-  const toggleAuth = (e) => {
-    e.preventDefault()
-    setIsAuth(true)
-  }
+export function Login({toggleAuth}){
+  
     return (
        <PopLogin>
          <PopLoginContainer>

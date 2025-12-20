@@ -139,7 +139,7 @@ export const PopUserSetButton = styled.button`
 width: 72px;
   height: 30px;
   background: transparent;
-  color: #565EEF;
+  background-color: #565EEF;
   border-radius: 4px;
   border: 1px solid #565EEF;
   margin-top: 30px;
@@ -147,6 +147,14 @@ width: 72px;
   &:hover{
   background-color: #33399b;
   color: #FFFFFF;}
+  a{
+  padding-top: 5px;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  color: #FFF;}
+ 
+
 `;
 export const HeaderPopUserSet = styled.div`
   

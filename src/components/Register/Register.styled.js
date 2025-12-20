@@ -62,9 +62,15 @@ export const PopRegisterYes = styled.button`
   font-weight: 500;
   letter-spacing: -0.14px;
   color: #FFFFFF;
-  
   &:hover{
   background-color: #33399b;
+  }
+  a{
+  display: inline-block;
+  width:100%;
+  height:100%;
+  margin-top: 5px;
+  color: #FFFFFF;
   }
 `
 export const PopRegisterNo = styled.div`
@@ -82,7 +88,10 @@ export const PopRegisterNo = styled.div`
   letter-spacing: -0.14px;
   color: #94A6BE66;
   margin-top: 20px;
+  }
+  a{
   
+  color:#94A6BE66;
   }
 `
 export const PopRegisterInputName = styled.input`

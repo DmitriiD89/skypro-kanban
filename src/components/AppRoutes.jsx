@@ -21,6 +21,10 @@ function AppRoutes() {
       setLoading(false);
     }, 3000);
   }, []);
+  export const toggleAuth = (e) => {
+      e.preventDefault()
+      setIsAuth(true)
+    }
   
   
   const ProtectedRoute = ({children}) => {
@@ -42,7 +46,7 @@ function AppRoutes() {
             <Route path='/new-card' element={<ProtectedRoute><MainPage loading={loading}/><NewCardPage/></ProtectedRoute>}/>
             <Route path='/card/:id' element={<ProtectedRoute><CardPage/></ProtectedRoute>}/>
             <Route path='/exit' element={<ProtectedRoute><MainPage loading={loading}/><ExitPage setIsAuth={setIsAuth}/></ProtectedRoute>}/>
-            <Route path='/browse' element={<ProtectedRoute><MainPage loading={loading}/><PopBrowsePage/></ProtectedRoute>}/>
+            <Route path='/browse' element={<ProtectedRoute><PopBrowsePage/></ProtectedRoute>}/>
         </Routes>
         </div>
      
