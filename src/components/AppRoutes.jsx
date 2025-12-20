@@ -21,10 +21,10 @@ function AppRoutes() {
       setLoading(false);
     }, 3000);
   }, []);
-  export const toggleAuth = (e) => {
-      e.preventDefault()
-      setIsAuth(true)
-    }
+  // const toggleAuth = (e) => {
+  //     e.preventDefault()
+  //     setIsAuth(true)
+  //   }
   
   
   const ProtectedRoute = ({children}) => {

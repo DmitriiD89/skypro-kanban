@@ -9,7 +9,7 @@ export function CardPage(){
     return (
         <>
         <Card id={card.id} topic={card.topic} title={card.title} date={card.date}/>
-    
+        
         </>
    
     )

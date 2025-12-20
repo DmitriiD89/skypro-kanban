@@ -1,9 +1,9 @@
 
 import { Login } from "../../components/Login/Login";
 
-export function LoginPage({toggleAuth}){
+export function LoginPage({setIsAuth}){
     return (
-        <Login toggleAuth={toggleAuth}/>
+        <Login setIsAuth={setIsAuth}/>
        
     )
 }

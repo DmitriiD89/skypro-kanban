@@ -11,7 +11,7 @@ import {
   PopRegisterYes,
 } from "./Register.styled";
 
-export function Register({ toggleAuth }) {
+export function Register({ setIsAuth }) {
   return (
     <PopRegister>
       <PopRegisterContainer>
@@ -24,7 +24,7 @@ export function Register({ toggleAuth }) {
           <PopRegisterInputPassword placeholder="Пароль" type='password' />
 
           
-            <PopRegisterYes onClick={toggleAuth}>
+            <PopRegisterYes onClick={() => setIsAuth(true)}>
               <Link to="/">Зарегистрироваться</Link>
             </PopRegisterYes>
           
