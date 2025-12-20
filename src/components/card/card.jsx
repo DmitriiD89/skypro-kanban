@@ -7,7 +7,7 @@ import {CardItem,
     CardContent,
     CardTitle,
     CardDate,} from './card.styled'
-import PopBrowse from '../popBrowse/popBrowse';
+
 
   export const Card = ({id, topic, title, date}) => {
     const className = {"Web Design" : "_orange",
@@ -23,13 +23,13 @@ import PopBrowse from '../popBrowse/popBrowse';
                     <div className={`card__theme ${className[topic]}`}>
                 <p className={`${className[topic]}`}>{topic}</p>
                 </div>
-                    <a href="#popBrowse" target="_self">
+                    <Link to='/browse' target="_self">
                         <CardBtn>
                         <CardBtnDiv></CardBtnDiv>
                         <CardBtnDiv></CardBtnDiv>
                         <CardBtnDiv></CardBtnDiv>
                         </CardBtn>
-                     </a>
+                     </Link>
                     </CardGroup>
                  <CardContent>
                      <Link to={`/card/${id}`}>
