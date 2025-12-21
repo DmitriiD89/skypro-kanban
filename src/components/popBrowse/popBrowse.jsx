@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 
 export default function PopBrowse(){
+	const navigator = useNavigate()
     return (
         <div className="pop-browse" id="popBrowse">
 				<div className="pop-browse__container">
@@ -124,7 +125,7 @@ export default function PopBrowse(){
 									<button className="btn-browse__edit _btn-bor _hover03"><a href="#">Редактировать задачу</a></button>
 									<button className="btn-browse__delete _btn-bor _hover03"><a href="#">Удалить задачу</a></button>
 								</div>
-								<button className="btn-browse__close _btn-bg _hover01"><Link to="/">Закрыть</Link></button>
+								<button className="btn-browse__close _btn-bg _hover01" onClick={()=>navigator(-1)}>Закрыть</button>
 							</div>
 							<div className="pop-browse__btn-edit _hide">
 								<div className="btn-group">

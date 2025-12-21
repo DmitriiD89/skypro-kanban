@@ -23,7 +23,7 @@ import {CardItem,
                     <div className={`card__theme ${className[topic]}`}>
                 <p className={`${className[topic]}`}>{topic}</p>
                 </div>
-                    <Link to='/browse' target="_self">
+                    <Link to='browse' target="_self">
                         <CardBtn>
                         <CardBtnDiv></CardBtnDiv>
                         <CardBtnDiv></CardBtnDiv>

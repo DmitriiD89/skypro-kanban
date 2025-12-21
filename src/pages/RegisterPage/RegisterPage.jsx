@@ -2,8 +2,8 @@ import { Register } from "../../components/Register/Register"
 
 
 
-export function RegisterPage({toggleAuth}){
+export function RegisterPage({setIsAuth}){
     return (
-      <Register toggleAuth={toggleAuth}/>
+      <Register setIsAuth={setIsAuth}/>
     )
 }

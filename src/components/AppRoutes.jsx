@@ -21,10 +21,10 @@ function AppRoutes() {
       setLoading(false);
     }, 3000);
   }, []);
-  // const toggleAuth = (e) => {
-  //     e.preventDefault()
-  //     setIsAuth(true)
-  //   }
+  const toggleAuth = (e) => {
+      e.preventDefault()
+      setIsAuth(true)
+    }
   
   
   const ProtectedRoute = ({children}) => {
@@ -38,15 +38,16 @@ function AppRoutes() {
          <div className="wrapper">
             <Header />
          <Routes>
-            <Route path='/login' element={<LoginPage setIsAuth={setIsAuth}/>}/>
-            <Route path='/register' element={<RegisterPage setIsAuth={setIsAuth}/>}/>
+            <Route path='/login' element={<LoginPage toggleAuth={toggleAuth} />}/>
+            <Route path='/register' element={<RegisterPage setIsAuth={setIsAuth} />}/>
             <Route path='*' element={<NotFoundPage/>}/>
             {/* Публичные пути */}
-            <Route path="/" element={<ProtectedRoute><MainPage loading={loading}/></ProtectedRoute>} />
-            <Route path='/new-card' element={<ProtectedRoute><MainPage loading={loading}/><NewCardPage/></ProtectedRoute>}/>
-            <Route path='/card/:id' element={<ProtectedRoute><CardPage/></ProtectedRoute>}/>
-            <Route path='/exit' element={<ProtectedRoute><MainPage loading={loading}/><ExitPage setIsAuth={setIsAuth}/></ProtectedRoute>}/>
-            <Route path='/browse' element={<ProtectedRoute><PopBrowsePage/></ProtectedRoute>}/>
+            <Route path="/" element={<ProtectedRoute><MainPage loading={loading} /></ProtectedRoute>}>
+            <Route path='exit' element={<ExitPage setIsAuth={setIsAuth} />} />
+            <Route path='new-card' element={<NewCardPage />} />
+            <Route path='browse' element={<PopBrowsePage />} /></Route>
+            <Route path='/card/:id' element={<ProtectedRoute><CardPage /></ProtectedRoute>}>
+            <Route path='browse' element={<PopBrowsePage />}/></Route>
         </Routes>
         </div>
      

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Outlet, useParams } from "react-router-dom"
 import { cardList } from "../../data"
 import { Card } from "../../components/card/card"
 
@@ -9,7 +9,7 @@ export function CardPage(){
     return (
         <>
         <Card id={card.id} topic={card.topic} title={card.title} date={card.date}/>
-        
+        <Outlet/>
         </>
    
     )
