@@ -32,9 +32,9 @@ import {CardItem,
                      </Link>
                     </CardGroup>
                  <CardContent>
-                     
+                     <Link to={`/card/${id}`}>
                         <CardTitle>{title}</CardTitle>
-                     
+                     </Link>
                      <CardDate>
                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
                              <g clipPath="url(#clip0_1_415)">
