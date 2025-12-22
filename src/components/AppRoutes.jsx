@@ -45,9 +45,8 @@ function AppRoutes() {
             <Route path="/" element={<ProtectedRoute><MainPage loading={loading} /></ProtectedRoute>}>
             <Route path='exit' element={<ExitPage setIsAuth={setIsAuth} />} />
             <Route path='new-card' element={<NewCardPage />} />
-            <Route path='browse' element={<PopBrowsePage />} /></Route>
-            <Route path='/card/:id' element={<ProtectedRoute><CardPage /></ProtectedRoute>}>
-            <Route path='browse' element={<PopBrowsePage />}/></Route>
+            <Route path='/card/:id' element={<PopBrowsePage/>}></Route>
+          </Route>
         </Routes>
         </div>
      
