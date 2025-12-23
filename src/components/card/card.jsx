@@ -23,7 +23,7 @@ import {CardItem,
                     <div className={`card__theme ${className[topic]}`}>
                 <p className={`${className[topic]}`}>{topic}</p>
                 </div>
-                    <Link to={`/card/${id}`} target="_self">
+                    <Link to={`browse/${id}`} target="_self">
                         <CardBtn>
                         <CardBtnDiv></CardBtnDiv>
                         <CardBtnDiv></CardBtnDiv>
@@ -32,7 +32,7 @@ import {CardItem,
                      </Link>
                     </CardGroup>
                  <CardContent>
-                     <Link to={`/card/${id}`}>
+                     <Link to={`card/${id}`}>
                         <CardTitle>{title}</CardTitle>
                      </Link>
                      <CardDate>

@@ -8,7 +8,7 @@ export function CardPage(){
     const card = cardList.find(card=>card.id === +id)
     return (
         <>
-        <Card id={card.id} topic={card.topic} title={card.title} date={card.date}/>
+        <Card id={card.id} topic={card.topic} title={card.title + `${card.id}`} date={card.date}/>
         <Outlet/>
         </>
    
