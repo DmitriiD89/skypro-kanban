@@ -21,16 +21,14 @@ export function Register({ setIsAuth }) {
           </PopRegisterTtl>
           <PopRegisterInputName placeholder="Имя" />
           <PopRegisterInputMail placeholder="Эл. почта" />
-          <PopRegisterInputPassword placeholder="Пароль" type='password' />
+          <PopRegisterInputPassword placeholder="Пароль" type="password" />
+          <PopRegisterYes onClick={() => setIsAuth(true)}>
+            <Link to="/">Зарегистрироваться</Link>
+          </PopRegisterYes>
 
-          
-            <PopRegisterYes onClick={() => setIsAuth(true)}>
-              <Link to="/">Зарегистрироваться</Link>
-            </PopRegisterYes>
-          
           <PopRegisterNo>
-              Уже есть аккаунт? <Link to="/login"> Войдите здесь</Link>
-            </PopRegisterNo>
+            Уже есть аккаунт? <Link to="/login"> Войдите здесь</Link>
+          </PopRegisterNo>
         </PopRegisterBlock>
       </PopRegisterContainer>
     </PopRegister>

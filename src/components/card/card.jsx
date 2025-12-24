@@ -1,4 +1,4 @@
-  import { Link } from 'react-router-dom';
+  import { Link, useParams } from 'react-router-dom';
 import {CardItem,
     CardsCard,
     CardGroup,
@@ -14,6 +14,8 @@ import {CardItem,
         "Research" : "_green",
         "Copywriting" : "_purple",            
 };     
+    const params = useParams()
+    
     return (
         <>
   <CardItem key={id}>
@@ -23,7 +25,7 @@ import {CardItem,
                     <div className={`card__theme ${className[topic]}`}>
                 <p className={`${className[topic]}`}>{topic}</p>
                 </div>
-                    <Link to={`browse/${id}`} target="_self">
+                    <Link to={params.id? 'browse' : `browse/${id}`} target="_self">
                         <CardBtn>
                         <CardBtnDiv></CardBtnDiv>
                         <CardBtnDiv></CardBtnDiv>
@@ -32,7 +34,7 @@ import {CardItem,
                      </Link>
                     </CardGroup>
                  <CardContent>
-                     <Link to={`card/${id}`}>
+                     <Link to={`/card/${id}`}>
                         <CardTitle>{title}</CardTitle>
                      </Link>
                      <CardDate>
