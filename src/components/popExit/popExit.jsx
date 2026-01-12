@@ -16,7 +16,7 @@ export default function PopExit({ setIsAuth }) {
           <form className="pop-exit__form" id="formExit" action="#">
             <div className="pop-exit__form-group">
               <button
-                onClick={() => setIsAuth(false)}
+                onClick={() => localStorage.removeItem("token")}
                 className="pop-exit__exit-yes _hover01"
                 id="exitYes"
               >

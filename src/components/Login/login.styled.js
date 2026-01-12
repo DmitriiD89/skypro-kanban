@@ -45,8 +45,8 @@ export const PopLoginTtl = styled.div`
 export const PopLoginForm = styled.form`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
 `;
 export const PopLoginYes = styled.button`
   width: 248px;
@@ -67,13 +67,13 @@ export const PopLoginYes = styled.button`
   &:hover {
     background-color: #33399b;
   }
-    a{
+  a {
     margin-top: 4.5px;
     display: inline-block;
     width: 100%;
     height: 100%;
-    color:#fff;
-    }
+    color: #fff;
+  }
 `;
 export const PopLoginNo = styled.div`
   width: 248px;
@@ -94,8 +94,8 @@ export const PopLoginNo = styled.div`
   &:hover {
     text-decoration: inderline;
   }
-  a{
-  color: #94A6BE66;
+  a {
+    color: #94a6be66;
   }
 `;
 export const PopLoginInputMail = styled.input`

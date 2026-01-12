@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PopRegister = styled.div`
-width: 100%;
+  width: 100%;
   height: 100%;
   min-width: 320px;
   min-height: 100vh;
@@ -9,9 +9,9 @@ width: 100%;
   top: 0;
   left: 0;
   z-index: 5;
-`
+`;
 export const PopRegisterContainer = styled.div`
- width: 100%;
+  width: 100%;
   height: 100%;
   min-height: 100vh;
   padding: 0 16px;
@@ -20,37 +20,37 @@ export const PopRegisterContainer = styled.div`
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
-`
+`;
 export const PopRegisterBlock = styled.div`
-display: block;
+  display: block;
   margin: 0 auto;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   max-width: 370px;
   width: 100%;
   padding: 50px 60px;
   border-radius: 10px;
-  border: 0.7px solid #D4DBE5;
+  border: 0.7px solid #d4dbe5;
   box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
-`
+`;
 export const PopRegisterTtl = styled.div`
-text-align: center;
+  text-align: center;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
   letter-spacing: -0.4px;
   margin-bottom: 20px;
-`
+`;
 export const PopRegisterForm = styled.form`
-width: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-`
+  flex-wrap: wrap;
+`;
 export const PopRegisterYes = styled.button`
- width: 248px;
+  width: 248px;
   height: 30px;
   margin-top: 20px;
-  background-color: #565EEF;
+  background-color: #565eef;
   border-radius: 4px;
   border: none;
   outline: none;
@@ -61,18 +61,18 @@ export const PopRegisterYes = styled.button`
   line-height: 21px;
   font-weight: 500;
   letter-spacing: -0.14px;
-  color: #FFFFFF;
-  &:hover{
-  background-color: #33399b;
+  color: #ffffff;
+  &:hover {
+    background-color: #33399b;
   }
-  a{
-  display: inline-block;
-  width:100%;
-  height:100%;
-  margin-top: 5px;
-  color: #FFFFFF;
+  a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    margin-top: 5px;
+    color: #ffffff;
   }
-`
+`;
 export const PopRegisterNo = styled.div`
  width: 248px;
   height: 30px;
@@ -93,52 +93,49 @@ export const PopRegisterNo = styled.div`
   
   color:#94A6BE66;
   }
-`
+`;
 export const PopRegisterInputName = styled.input`
-border: 0.7px solid #94A6BE66;
-width: 249px;
-height: 30;
-angle: 0 deg;
-opacity: 1;
-border-radius: 8px;
-border-width: 0.7px;
-gap: 10px;
-padding-top: 8px;
-padding-right: 10px;
-padding-bottom: 8px;
-padding-left: 10px;
-margin-bottom: 7px;
-
-`
+  border: 0.7px solid #94a6be66;
+  width: 249px;
+  height: 30;
+  angle: 0 deg;
+  opacity: 1;
+  border-radius: 8px;
+  border-width: 0.7px;
+  gap: 10px;
+  padding-top: 8px;
+  padding-right: 10px;
+  padding-bottom: 8px;
+  padding-left: 10px;
+  margin-bottom: 7px;
+`;
 export const PopRegisterInputMail = styled.input`
-border: 0.7px solid #94A6BE66;
-width: 249px;
-height: 30;
-angle: 0 deg;
-opacity: 1;
-border-radius: 8px;
-border-width: 0.7px;
-gap: 10px;
-padding-top: 8px;
-padding-right: 10px;
-padding-bottom: 8px;
-padding-left: 10px;
-margin-bottom: 7px;
-
-`
+  border: 0.7px solid #94a6be66;
+  width: 249px;
+  height: 30;
+  angle: 0 deg;
+  opacity: 1;
+  border-radius: 8px;
+  border-width: 0.7px;
+  gap: 10px;
+  padding-top: 8px;
+  padding-right: 10px;
+  padding-bottom: 8px;
+  padding-left: 10px;
+  margin-bottom: 7px;
+`;
 export const PopRegisterInputPassword = styled.input`
-border: 0.7px solid #94A6BE66;
-width: 249px;
-height: 30;
-angle: 0 deg;
-opacity: 1;
-border-radius: 8px;
-border-width: 0.7px;
-gap: 10px;
-padding-top: 8px;
-padding-right: 10px;
-padding-bottom: 8px;
-padding-left: 10px;
-margin-bottom: 7px;
-
-`
+  border: 0.7px solid #94a6be66;
+  width: 249px;
+  height: 30;
+  angle: 0 deg;
+  opacity: 1;
+  border-radius: 8px;
+  border-width: 0.7px;
+  gap: 10px;
+  padding-top: 8px;
+  padding-right: 10px;
+  padding-bottom: 8px;
+  padding-left: 10px;
+  margin-bottom: 7px;
+`;

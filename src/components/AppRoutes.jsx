@@ -12,7 +12,9 @@ import { NewCardPage } from "../pages/NewCardPage/NewCardPage";
 import { PopBrowsePage } from "../pages/PopBrowsePage/PopBrowsePage";
 
 function AppRoutes() {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(
+    localStorage.getItem("token") ? true : false
+  );
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -26,6 +28,7 @@ function AppRoutes() {
     }
     return <Navigate to="/login" />;
   };
+
   return (
     <>
       <GlobalStyle />
