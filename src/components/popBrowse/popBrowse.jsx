@@ -1,17 +1,24 @@
+import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { TasksContext } from "../../context/TasksContext";
 
 export default function PopBrowse() {
+  const {
+    fetchDeleteTaskById,
+    loading,
+    error,
+    fetchEditTaskById,
+    changeTaskInfo,
+  } = useContext(TasksContext);
   const navigator = useNavigate();
-  const popParams = useParams();
+  const { id } = useParams();
   return (
     <div className="pop-browse" id="popBrowse">
       <div className="pop-browse__container">
         <div className="pop-browse__block">
           <div className="pop-browse__content">
             <div className="pop-browse__top-block">
-              <h3 className="pop-browse__ttl">
-                Название задачи № {popParams.id}
-              </h3>
+              <h3 className="pop-browse__ttl">Название задачи № {id}</h3>
               <div className="categories__theme theme-top _orange _active-category">
                 <p className="_orange">Web Design</p>
               </div>
@@ -47,10 +54,10 @@ export default function PopBrowse() {
                     Описание задачи
                   </label>
                   <textarea
+                    onChange={changeTaskInfo}
                     className="form-browse__area"
-                    name="text"
+                    name="description"
                     id="textArea01"
-                    readOnly
                     placeholder="Введите описание задачи..."
                   ></textarea>
                 </div>
@@ -166,11 +173,18 @@ export default function PopBrowse() {
             </div>
             <div className="pop-browse__btn-browse ">
               <div className="btn-group">
-                <button className="btn-browse__edit _btn-bor _hover03">
-                  <a href="#">Редактировать задачу</a>
+                <button
+                  onClick={() => fetchEditTaskById(id)}
+                  className="btn-browse__edit _btn-bor _hover03"
+                >
+                  Редактировать задачу
                 </button>
-                <button className="btn-browse__delete _btn-bor _hover03">
-                  <a href="#">Удалить задачу</a>
+                <button
+                  onClick={() => fetchDeleteTaskById(id)}
+                  disabled={loading}
+                  className="btn-browse__delete _btn-bor _hover03"
+                >
+                  {loading ? "Загрузка..." : "Удалить задачу"}
                 </button>
               </div>
               <button
@@ -180,6 +194,7 @@ export default function PopBrowse() {
                 Закрыть
               </button>
             </div>
+            {error && <span style={{ color: "red" }}>{error}</span>}
             <div className="pop-browse__btn-edit _hide">
               <div className="btn-group">
                 <button className="btn-edit__edit _btn-bg _hover01">

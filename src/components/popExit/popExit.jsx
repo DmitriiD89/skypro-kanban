@@ -1,11 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
-export default function PopExit({ setIsAuth }) {
-  const navigate = useNavigate();
-  function stayIn(event) {
-    event.preventDefault();
-    navigate(-1);
-  }
+export default function PopExit() {
+  const { stayIn, logOut } = useContext(AuthContext);
   return (
     <div className="pop-exit" id="popExit">
       <div className="pop-exit__container">
@@ -16,7 +13,7 @@ export default function PopExit({ setIsAuth }) {
           <form className="pop-exit__form" id="formExit" action="#">
             <div className="pop-exit__form-group">
               <button
-                onClick={() => localStorage.removeItem("token")}
+                onClick={logOut}
                 className="pop-exit__exit-yes _hover01"
                 id="exitYes"
               >

@@ -11,53 +11,17 @@ import {
   PopRegisterTtl,
   PopRegisterYes,
 } from "./Register.styled";
-import { useState } from "react";
-import { registerUser } from "../../servises/api";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
-export function Register({ setIsAuth }) {
-  const [userData, setUserData] = useState({
-    name: "",
-    login: "",
-    password: "",
-  });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
-  function changeUserData(e) {
-    const { name, value } = e.target;
-    setUserData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    setError("");
-  }
-
-  async function onSubmit(e) {
-    e.preventDefault();
-    const { name, login, password } = userData;
-    if (!name.trim() || !login.trim() || !password.trim()) {
-      setError("Заполните все поля, пожалуйста");
-      return;
-    }
-    setLoading(true);
-    setError("");
-    try {
-      const res = await registerUser(name, login, password);
-      setIsAuth(true);
-      navigate("/");
-      localStorage.setItem("token", res.user.token);
-    } catch (error) {
-      setError("Логин занят");
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  }
+export function Register() {
+  const { onSubmitRegister, changeUserData, error, loading } =
+    useContext(AuthContext);
   return (
     <PopRegister>
       <PopRegisterContainer>
         <PopRegisterBlock>
-          <PopRegisterForm onSubmit={onSubmit}>
+          <PopRegisterForm onSubmit={onSubmitRegister}>
             <PopRegisterTtl>
               <h2>Регистрация</h2>
             </PopRegisterTtl>
@@ -79,7 +43,7 @@ export function Register({ setIsAuth }) {
               name="password"
               type="password"
             />
-            {error && <div>{error}</div>}
+            {error && <div style={{ color: "red" }}>{error}</div>}
 
             <PopRegisterYes>
               {loading ? "Регистрация..." : "Зарегистрироваться"}

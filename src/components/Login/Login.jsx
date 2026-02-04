@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   PopLogin,
   PopLoginBlock,
@@ -10,48 +10,17 @@ import {
   PopLoginInputMail,
   PopLoginInputPassword,
 } from "./login.styled";
-import { useState } from "react";
-import { loginUser } from "../../servises/api";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
-export function Login({ setIsAuth }) {
-  const [userData, setUserData] = useState({ login: "", password: "" });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
-  function changeUserData(e) {
-    const { name, value } = e.target;
-    setUserData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    setError("");
-  }
-  async function onSubmit(e) {
-    const { login, password } = userData;
-    e.preventDefault();
-    if (!login.trim() || !password.trim()) {
-      setError("Заполните все поля, пожалуйста");
-      return;
-    }
-    setLoading(true);
-    setError("");
-    try {
-      const res = await loginUser(login, password);
-      setIsAuth(true);
-      navigate("/");
-      localStorage.setItem("token", res.user.token);
-    } catch (error) {
-      setError("Неверный логин или пароль");
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  }
+export function Login() {
+  const { onSubmitLogin, changeUserData, error, loading } =
+    useContext(AuthContext);
   return (
     <PopLogin>
       <PopLoginContainer>
         <PopLoginBlock>
-          <PopLoginForm onSubmit={onSubmit}>
+          <PopLoginForm onSubmit={onSubmitLogin}>
             <PopLoginTtl>
               <h2>Вход</h2>
             </PopLoginTtl>
@@ -68,7 +37,7 @@ export function Login({ setIsAuth }) {
               placeholder="Пароль"
               type="password"
             />
-            {error && <div>{error}</div>}
+            {error && <div style={{ color: "red" }}>{error}</div>}
 
             <PopLoginYes>{loading ? "Вход..." : "Войти"}</PopLoginYes>
 
