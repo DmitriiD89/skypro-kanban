@@ -7,7 +7,7 @@ export default function PopNewCard() {
     fetchNewTask,
     loading,
     changeTaskInfo,
-    error,
+    errorModal,
     activeTopic,
     handleActiveTopic,
   } = useContext(TasksContext);
@@ -176,15 +176,18 @@ export default function PopNewCard() {
                 ))}
               </div>
             </div>
+
             <button
+              disabled={loading}
               form="formNewCard"
               type="submit"
               className="form-new__create _hover01"
               id="btnCreate"
             >
-              Создать задачу
+              {loading ? "Загрузка..." : "Создать задачу"}
             </button>
           </div>
+          {errorModal && <div style={{ color: "red" }}>{errorModal}</div>}
         </div>
       </div>
     </div>

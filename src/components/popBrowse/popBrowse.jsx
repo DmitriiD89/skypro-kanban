@@ -6,7 +6,7 @@ export default function PopBrowse() {
   const {
     fetchDeleteTaskById,
     loading,
-    error,
+    errorModal,
     fetchEditTaskById,
     changeTaskInfo,
   } = useContext(TasksContext);
@@ -194,7 +194,7 @@ export default function PopBrowse() {
                 Закрыть
               </button>
             </div>
-            {error && <span style={{ color: "red" }}>{error}</span>}
+            {errorModal && <span style={{ color: "red" }}>{errorModal}</span>}
             <div className="pop-browse__btn-edit _hide">
               <div className="btn-group">
                 <button className="btn-edit__edit _btn-bg _hover01">

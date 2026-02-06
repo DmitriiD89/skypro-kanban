@@ -19,17 +19,28 @@ export const TasksProvider = ({ children }) => {
   const [activeTopic, setActiveTopic] = useState("Web Design");
   const navigate = useNavigate();
   const [currentTask, setCurrentTask] = useState({});
+
   const [tasks, setTasks] = useState(null);
   const [error, setError] = useState("");
+  const [errorModal, setErrorModal] = useState("");
   const [loading, setLoading] = useState(true);
+
   async function fetchTasks() {
     try {
+      setError("");
+      setErrorModal("");
       const res = await getTasks();
       setTasks(res.tasks);
     } catch (error) {
       setError(error.message);
     } finally {
       setLoading(false);
+      setTaskInfo({
+        title: "",
+        topic: "Web Design",
+        status: "Без статуса",
+        description: "",
+      });
     }
   }
   async function fetchTaskById(id) {
@@ -49,19 +60,24 @@ export const TasksProvider = ({ children }) => {
       await deleteTaskById(id);
       navigate("/");
     } catch (error) {
-      setError(error.message);
+      setErrorModal(error.message);
     } finally {
       setLoading(false);
     }
   }
   async function fetchNewTask(e) {
     e.preventDefault();
+    const { description, title, topic } = taskInfo;
+    if (!description || !title) {
+      setErrorModal("Заполните все поля");
+      return;
+    }
     try {
       setLoading(true);
-      await newTask(taskInfo);
+      await newTask({ description, title, topic });
       navigate("/");
     } catch (error) {
-      setError(error.message);
+      setErrorModal(error.message);
     } finally {
       setLoading(false);
     }
@@ -73,7 +89,7 @@ export const TasksProvider = ({ children }) => {
       ...prev,
       [name]: value,
     }));
-    setError("");
+    setErrorModal("");
   }
   function handleActiveTopic(topicName) {
     setActiveTopic(topicName);
@@ -85,12 +101,16 @@ export const TasksProvider = ({ children }) => {
 
   async function fetchEditTaskById(id) {
     const { description, status } = taskInfo;
+    if (!description) {
+      setErrorModal("Заполните все поля");
+      return;
+    }
     try {
       setLoading(true);
       await editTaskById(id, { description, status });
       navigate("/");
     } catch (error) {
-      setError(error.message);
+      setErrorModal(error.message);
     } finally {
       setLoading(false);
     }
@@ -108,6 +128,7 @@ export const TasksProvider = ({ children }) => {
     fetchEditTaskById,
     tasks,
     error,
+    errorModal,
     loading,
   };
 
