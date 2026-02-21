@@ -10,12 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 export const TasksContext = createContext();
 export const TasksProvider = ({ children }) => {
-  const [taskInfo, setTaskInfo] = useState({
-    title: "",
-    topic: "Web Design",
-    status: "Без статуса",
-    description: "",
-  });
+  const [taskInfo, setTaskInfo] = useState({});
   const [activeTopic, setActiveTopic] = useState("Web Design");
   const navigate = useNavigate();
   const [currentTask, setCurrentTask] = useState({});
@@ -35,12 +30,7 @@ export const TasksProvider = ({ children }) => {
       setError(error.message);
     } finally {
       setLoading(false);
-      setTaskInfo({
-        title: "",
-        topic: "Web Design",
-        status: "Без статуса",
-        description: "",
-      });
+      setTaskInfo({});
     }
   }
   async function fetchTaskById(id) {
@@ -91,6 +81,15 @@ export const TasksProvider = ({ children }) => {
     }));
     setErrorModal("");
   }
+
+  function changeCurrentTask(e) {
+    const { name, value } = e.target;
+    setCurrentTask((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    setErrorModal("");
+  }
   function handleActiveTopic(topicName) {
     setActiveTopic(topicName);
     setTaskInfo((prev) => ({
@@ -100,14 +99,13 @@ export const TasksProvider = ({ children }) => {
   }
 
   async function fetchEditTaskById(id) {
-    const { description, status } = taskInfo;
-    if (!description) {
+    if (!currentTask.description) {
       setErrorModal("Заполните все поля");
       return;
     }
     try {
       setLoading(true);
-      await editTaskById(id, { description, status });
+      await editTaskById(id, currentTask);
       navigate("/");
     } catch (error) {
       setErrorModal(error.message);
@@ -123,6 +121,7 @@ export const TasksProvider = ({ children }) => {
     fetchNewTask,
     fetchDeleteTaskById,
     currentTask,
+    changeCurrentTask,
     fetchTaskById,
     fetchTasks,
     fetchEditTaskById,
@@ -130,6 +129,7 @@ export const TasksProvider = ({ children }) => {
     error,
     errorModal,
     loading,
+    taskInfo,
   };
 
   return (

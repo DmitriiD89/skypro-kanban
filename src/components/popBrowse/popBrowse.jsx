@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { TasksContext } from "../../context/TasksContext";
 
@@ -8,17 +8,36 @@ export default function PopBrowse() {
     loading,
     errorModal,
     fetchEditTaskById,
-    changeTaskInfo,
+    changeCurrentTask,
+    currentTask,
+    fetchTaskById,
   } = useContext(TasksContext);
+
   const navigator = useNavigate();
   const { id } = useParams();
+  useEffect(() => {
+    fetchTaskById(id);
+  }, []);
+  const [isEdited, setIsEdited] = useState(false);
+  const statusOption = [
+    "Без статуса",
+    "Нужно сделать",
+    "В работе",
+    "Тестирование",
+    "Готово",
+  ];
+  function handleStatus(status) {
+    if (isEdited) {
+      changeCurrentTask({ target: { name: "status", value: status } });
+    }
+  }
   return (
     <div className="pop-browse" id="popBrowse">
       <div className="pop-browse__container">
         <div className="pop-browse__block">
           <div className="pop-browse__content">
             <div className="pop-browse__top-block">
-              <h3 className="pop-browse__ttl">Название задачи № {id}</h3>
+              <h3 className="pop-browse__ttl">{currentTask.title}</h3>
               <div className="categories__theme theme-top _orange _active-category">
                 <p className="_orange">Web Design</p>
               </div>
@@ -26,21 +45,19 @@ export default function PopBrowse() {
             <div className="pop-browse__status status">
               <p className="status__p subttl">Статус</p>
               <div className="status__themes">
-                <div className="status__theme _hide">
-                  <p>Без статуса</p>
-                </div>
-                <div className="status__theme _gray">
-                  <p className="_gray">Нужно сделать</p>
-                </div>
-                <div className="status__theme _hide">
-                  <p>В работе</p>
-                </div>
-                <div className="status__theme _hide">
-                  <p>Тестирование</p>
-                </div>
-                <div className="status__theme _hide">
-                  <p>Готово</p>
-                </div>
+                {statusOption.map((status, index) => (
+                  <div
+                    onClick={() => handleStatus(status)}
+                    key={index}
+                    className={`status__theme ${
+                      !isEdited && status !== currentTask.status ? "_hide" : ""
+                    } ${currentTask.status === status ? "_gray" : ""}`}
+                  >
+                    <p className={currentTask.status === status ? "_gray" : ""}>
+                      {status}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
             <div className="pop-browse__wrap">
@@ -54,7 +71,9 @@ export default function PopBrowse() {
                     Описание задачи
                   </label>
                   <textarea
-                    onChange={changeTaskInfo}
+                    onChange={changeCurrentTask}
+                    readOnly={!isEdited}
+                    value={currentTask.description}
                     className="form-browse__area"
                     name="description"
                     id="textArea01"
@@ -173,12 +192,29 @@ export default function PopBrowse() {
             </div>
             <div className="pop-browse__btn-browse ">
               <div className="btn-group">
-                <button
-                  onClick={() => fetchEditTaskById(id)}
-                  className="btn-browse__edit _btn-bor _hover03"
-                >
-                  Редактировать задачу
-                </button>
+                {isEdited ? (
+                  <>
+                    <button
+                      onClick={() => fetchEditTaskById(id)}
+                      className="btn-browse__edit _btn-bor _hover03"
+                    >
+                      Сохранить
+                    </button>
+                    <button
+                      onClick={() => setIsEdited(false)}
+                      className="btn-browse__edit _btn-bor _hover03"
+                    >
+                      Отменить
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    onClick={() => setIsEdited(true)}
+                    className="btn-browse__edit _btn-bor _hover03"
+                  >
+                    Редактировать задачу
+                  </button>
+                )}
                 <button
                   onClick={() => fetchDeleteTaskById(id)}
                   disabled={loading}

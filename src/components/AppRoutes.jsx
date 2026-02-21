@@ -25,16 +25,17 @@ function AppRoutes() {
     <>
       <GlobalStyle />
       <div className="wrapper">
-        <Header />
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="*" element={<NotFoundPage />} />
           {/* Публичные пути */}
+
           <Route
             path="/"
             element={
               <ProtectedRoute>
+                <Header />
                 <MainPage />
               </ProtectedRoute>
             }
@@ -47,6 +48,7 @@ function AppRoutes() {
             path="/card/:id"
             element={
               <ProtectedRoute>
+                <Header />
                 <CardPage />
               </ProtectedRoute>
             }

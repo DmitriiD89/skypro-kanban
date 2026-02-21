@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   function changeUserData(e) {
     const { name, value } = e.target;
+    console.log(userData);
     setUserData((prev) => ({
       ...prev,
       [name]: value,
@@ -74,6 +75,14 @@ export const AuthProvider = ({ children }) => {
     setIsAuth(false);
     localStorage.clear();
   }
+  function resetForm() {
+    setUserData({
+      name: "",
+      login: "",
+      password: "",
+    });
+    setError('')
+  }
   const value = {
     loading,
     onSubmitLogin,
@@ -83,6 +92,7 @@ export const AuthProvider = ({ children }) => {
     onSubmitRegister,
     stayIn,
     logOut,
+    resetForm
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

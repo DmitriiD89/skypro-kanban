@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   PopRegister,
   PopRegisterBlock,
@@ -11,12 +11,15 @@ import {
   PopRegisterTtl,
   PopRegisterYes,
 } from "./Register.styled";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 export function Register() {
-  const { onSubmitRegister, changeUserData, error, loading } =
+  const { onSubmitRegister, changeUserData, error, loading, resetForm } =
     useContext(AuthContext);
+  useEffect(() => {
+    resetForm();
+  }, []);
   return (
     <PopRegister>
       <PopRegisterContainer>

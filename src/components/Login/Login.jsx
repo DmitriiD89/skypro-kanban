@@ -10,12 +10,15 @@ import {
   PopLoginInputMail,
   PopLoginInputPassword,
 } from "./login.styled";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 export function Login() {
-  const { onSubmitLogin, changeUserData, error, loading } =
+  const { onSubmitLogin, changeUserData, error, loading, resetForm } =
     useContext(AuthContext);
+  useEffect(() => {
+    resetForm();
+  }, []);
   return (
     <PopLogin>
       <PopLoginContainer>
