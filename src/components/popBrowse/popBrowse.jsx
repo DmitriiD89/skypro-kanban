@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { TasksContext } from "../../context/TasksContext";
+import { Calendar } from "../Calendar/calendar";
 
 export default function PopBrowse() {
   const {
@@ -13,6 +14,7 @@ export default function PopBrowse() {
     fetchTaskById,
   } = useContext(TasksContext);
 
+  const [selectedDate, setSelectedDate] = useState(null);
   const navigator = useNavigate();
   const { id } = useParams();
   useEffect(() => {
@@ -31,6 +33,7 @@ export default function PopBrowse() {
       changeCurrentTask({ target: { name: "status", value: status } });
     }
   }
+
   return (
     <div className="pop-browse" id="popBrowse">
       <div className="pop-browse__container">
@@ -88,7 +91,7 @@ export default function PopBrowse() {
                     <div className="calendar__month">Сентябрь 2023</div>
                     <div className="nav__actions">
                       <div className="nav__action" data-action="prev">
-                        <svg
+                        {/* <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="6"
                           height="11"
@@ -105,11 +108,16 @@ export default function PopBrowse() {
                           viewBox="0 0 6 11"
                         >
                           <path d="M0.27055 9.04727C-0.0901833 9.37959 -0.0901832 9.9167 0.27055 10.249C0.633779 10.5837 1.2246 10.5837 1.58783 10.249L5.47151 6.67117C6.17616 6.02201 6.17616 4.97799 5.47151 4.32883L1.58782 0.75097C1.2246 0.416344 0.633778 0.416344 0.270549 0.75097C-0.0901831 1.0833 -0.090184 1.62041 0.270549 1.95273L4.12103 5.5L0.27055 9.04727Z" />
-                        </svg>
+                        </svg> */}
                       </div>
                     </div>
                   </div>
-                  <div className="calendar__content">
+                  {isEdited ? (
+                    <Calendar selectedDate={selectedDate} />
+                  ) : (
+                    <Calendar selectedDate={currentTask.date} />
+                  )}
+                  {/* <div className="calendar__content">
                     <div className="calendar__days-names">
                       <div className="calendar__day-name">пн</div>
                       <div className="calendar__day-name">вт</div>
@@ -172,7 +180,7 @@ export default function PopBrowse() {
                         1
                       </div>
                     </div>
-                  </div>
+                  </div> */}
 
                   <input type="hidden" id="datepick_value" value="08.09.2023" />
                   <div className="calendar__period">
@@ -201,7 +209,10 @@ export default function PopBrowse() {
                       Сохранить
                     </button>
                     <button
-                      onClick={() => setIsEdited(false)}
+                      onClick={() => {
+                        setIsEdited(false);
+                        fetchTaskById(id);
+                      }}
                       className="btn-browse__edit _btn-bor _hover03"
                     >
                       Отменить
