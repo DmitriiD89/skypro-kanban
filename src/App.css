@@ -604,6 +604,7 @@ html,
   display: flex;
   flex-direction: column;
 }
+
 .form-browse__area {
   max-width: 370px;
   width: 100%;

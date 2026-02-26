@@ -17,7 +17,11 @@ export const Card = ({ id, topic, title, date }) => {
     Copywriting: "_purple",
   };
   const params = useParams();
-  const localDate = new Date(date).toLocaleDateString();
+  const localDate = new Date(date).toLocaleDateString("ru-RU", {
+    year: "2-digit",
+    day: "2-digit",
+    month: "2-digit",
+  });
   return (
     <>
       <CardItem key={id}>
