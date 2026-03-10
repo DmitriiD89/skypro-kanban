@@ -24,7 +24,7 @@ export const PopRegisterContainer = styled.div`
 export const PopRegisterBlock = styled.div`
   display: block;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.backgroundHeader};
   max-width: 370px;
   width: 100%;
   padding: 50px 60px;
@@ -34,11 +34,13 @@ export const PopRegisterBlock = styled.div`
 `;
 export const PopRegisterTtl = styled.div`
   text-align: center;
+  width: 100%;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
   letter-spacing: -0.4px;
   margin-bottom: 20px;
+  color: ${(props) => props.theme.headerUserSet};
 `;
 export const PopRegisterForm = styled.form`
   width: 100%;
@@ -108,6 +110,8 @@ export const PopRegisterInputName = styled.input`
   padding-bottom: 8px;
   padding-left: 10px;
   margin-bottom: 7px;
+  color: ${(props) => props.theme.headerSetMail};
+  background-color: ${(props) => props.theme.backgroundCard};
 `;
 export const PopRegisterInputMail = styled.input`
   border: 0.7px solid #94a6be66;
@@ -123,6 +127,8 @@ export const PopRegisterInputMail = styled.input`
   padding-bottom: 8px;
   padding-left: 10px;
   margin-bottom: 7px;
+  color: ${(props) => props.theme.headerSetMail};
+  background-color: ${(props) => props.theme.backgroundCard};
 `;
 export const PopRegisterInputPassword = styled.input`
   border: 0.7px solid #94a6be66;
@@ -138,4 +144,6 @@ export const PopRegisterInputPassword = styled.input`
   padding-bottom: 8px;
   padding-left: 10px;
   margin-bottom: 7px;
+  color: ${(props) => props.theme.headerSetMail};
+  background-color: ${(props) => props.theme.backgroundCard};
 `;

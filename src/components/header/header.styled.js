@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HeaderClass = styled.header`
   width: 100%;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.backgroundHeader};
 `;
 export const HeaderBlock = styled.div`
   height: 70px;
@@ -40,7 +40,7 @@ export const HeaderUser = styled.a`
   justify-content: center;
   font-size: 14px;
   line-height: 20px;
-  color: #565EEF;
+  color: ${(props) => props.theme.headerLoginName};
 }
   .header__user::after {
   content: "";
@@ -74,7 +74,7 @@ export const HeaderNav = styled.nav`
   justify-content: center;
 `;
 export const PopUserSetName = styled.p`
-color: #000;
+color: ${(props) => props.theme.headerUserSet};
   font-size: 14px;
   font-weight: 500;
   line-height: 21px;
@@ -85,14 +85,14 @@ color: #000;
 }
   `;
 export const PopUserSetMail = styled.p`
-  color: #94a6be;
+  color: ${(props) => props.theme.headerSetMail};
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.14px;
   margin-bottom: 10px;
 `;
 export const PopUserSetTheme = styled.div`
-  color: #000;
+  color: ${(props) => props.theme.headerUserSet};
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.14px;
@@ -127,7 +127,7 @@ export const PopUserSetTheme = styled.div`
     width: 11px;
     height: 11px;
     border-radius: 50%;
-    background-color: #94a6be;
+    background-color: ${(props) => props.theme.headerCheckbox};
     transition: 0.5s;
   }
 
@@ -136,28 +136,27 @@ export const PopUserSetTheme = styled.div`
   }
 `;
 export const PopUserSetButton = styled.button`
-width: 72px;
+  width: 72px;
   height: 30px;
   background: transparent;
-  background-color: #565EEF;
+  background-color: #565eef;
   border-radius: 4px;
-  border: 1px solid #565EEF;
+  border: 1px solid #565eef;
   margin-top: 30px;
-  
-  &:hover{
-  background-color: #33399b;
-  color: #FFFFFF;}
-  a{
-  padding-top: 5px;
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  color: #FFF;}
- 
 
+  &:hover {
+    background-color: #33399b;
+    color: #ffffff;
+  }
+  a {
+    padding-top: 5px;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+  }
 `;
 export const HeaderPopUserSet = styled.div`
-  
   position: absolute;
   top: 71px;
   right: 0;
@@ -165,7 +164,7 @@ export const HeaderPopUserSet = styled.div`
   height: 205px;
   border-radius: 10px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
-  background: #fff;
+  background: ${(props) => props.theme.backgroundHeader};
   box-shadow: 0px 10px 39px 0px rgba(26, 56, 101, 0.21);
   padding: 34px;
   text-align: center;

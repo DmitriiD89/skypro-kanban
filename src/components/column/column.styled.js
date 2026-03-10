@@ -4,13 +4,16 @@ export const MainColumn = styled.div`
   width: 20%;
   margin: 0 auto;
   display: block;
-  `;
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+`;
 export const ColumnTitle = styled.div`
   padding: 0 10px;
   margin: 15px 0;
 `;
 export const ColumnTitleP = styled.p`
-color: #94A6BE;
+  color: #94a6be;
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
@@ -22,50 +25,58 @@ export const CardItem = styled.div`
   animation-name: card-animation;
   animation-duration: 500ms;
   animation-timing-function: linear;
-  `;
+`;
 
 export const CardsCard = styled.div`
   width: 220px;
   height: 130px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: stretch;
   padding: 15px 13px 19px;
-  `;
+`;
+export const Cards = styled.div`
+  overflow: auto;
+  width: 100%;
+  position: relative;
+  @media (max-width: 1200px) {
+    display: flex;
+  }
+`;
 
-  export const CardGroup = styled.div`
+export const CardGroup = styled.div`
   width: 100%;
   height: 20px;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  `;
-    export const CardBtn = styled.div`
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 2px;
-  `;
-  export const CardBtnDiv = styled.div`
-   width: 4px;
+`;
+export const CardBtn = styled.div`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2px;
+`;
+export const CardBtnDiv = styled.div`
+  width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: #94A6BE;
-  `;
-  export const CardContent = styled.div`
+  background-color: #94a6be;
+`;
+export const CardContent = styled.div`
   height: 64px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  `;
-  export const CardTitle = styled.h3`
+`;
+export const CardTitle = styled.h3`
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
@@ -73,14 +84,12 @@ export const CardsCard = styled.div`
   margin-bottom: 10px;
 `;
 export const CardDate = styled.div`
-display: flex;
+  display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-left: 6px;
   font-size: 10px;
   line-height: 13px;
-  color: #94A6BE;
+  color: #94a6be;
   letter-spacing: 0.2px;
-
 `;
-

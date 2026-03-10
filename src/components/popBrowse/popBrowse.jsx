@@ -11,6 +11,7 @@ export default function PopBrowse() {
     fetchEditTaskById,
     changeCurrentTask,
     currentTask,
+    getCurrentTask,
     fetchTaskById,
   } = useContext(TasksContext);
 
@@ -18,7 +19,7 @@ export default function PopBrowse() {
   const navigator = useNavigate();
   const { id } = useParams();
   useEffect(() => {
-    fetchTaskById(id);
+    getCurrentTask(id);
   }, []);
   const [isEdited, setIsEdited] = useState(false);
   const statusOption = [

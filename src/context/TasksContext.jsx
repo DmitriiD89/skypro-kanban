@@ -73,6 +73,11 @@ export const TasksProvider = ({ children }) => {
     }
   }
 
+  function getCurrentTask(id) {
+    const task = tasks.find((item) => item._id === id);
+    setCurrentTask(task);
+  }
+
   function changeTaskInfo(e) {
     const { name, value } = e.target;
     setTaskInfo((prev) => ({
@@ -122,6 +127,7 @@ export const TasksProvider = ({ children }) => {
     fetchDeleteTaskById,
     currentTask,
     changeCurrentTask,
+    getCurrentTask,
     fetchTaskById,
     fetchTasks,
     fetchEditTaskById,

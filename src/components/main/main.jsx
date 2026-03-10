@@ -1,9 +1,15 @@
 import { Column } from "../column/Column";
 
-import { MainClass, Container, MainBlock, MainContent } from "./main.styled";
+import {
+  MainClass,
+  Container,
+  MainBlock,
+  MainContent,
+  EmptyTasks,
+} from "./main.styled";
 import { useContext, useEffect } from "react";
-import { ColumnTitleP } from "../column/column.styled";
 import { TasksContext } from "../../context/TasksContext";
+import { Loading } from "../Loading/loading";
 
 export default function Main() {
   const { error, loading, fetchTasks, tasks } = useContext(TasksContext);
@@ -28,21 +34,23 @@ export default function Main() {
   return (
     <MainClass>
       <Container>
-        {loading ? (
-          <ColumnTitleP>Данные загружаются</ColumnTitleP>
-        ) : (
-          <MainBlock>
-            <MainContent>
-              {columnNames.map((columnName, index) => (
+        <MainBlock>
+          <MainContent>
+            {loading ? (
+              columnNames.map((columnName) => <Loading name={columnName} />)
+            ) : tasks.length ? (
+              columnNames.map((columnName, index) => (
                 <Column
                   key={index}
                   name={columnName}
                   cards={tasks.filter((card) => card.status === columnName)}
                 ></Column>
-              ))}
-            </MainContent>
-          </MainBlock>
-        )}
+              ))
+            ) : (
+              <EmptyTasks>Задач нет</EmptyTasks>
+            )}
+          </MainContent>
+        </MainBlock>
       </Container>
     </MainClass>
   );

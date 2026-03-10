@@ -17,7 +17,6 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   function changeUserData(e) {
     const { name, value } = e.target;
-    console.log(userData);
     setUserData((prev) => ({
       ...prev,
       [name]: value,
@@ -35,8 +34,13 @@ export const AuthProvider = ({ children }) => {
     setError("");
     try {
       const res = await loginUser(login, password);
+      console.log(res);
       setIsAuth(true);
       navigate("/");
+      localStorage.setItem(
+        "userName",
+        JSON.stringify({ name: res.user.name, login: res.user.login })
+      );
       localStorage.setItem("token", res.user.token);
     } catch (error) {
       setError("Неверный логин или пароль");
@@ -58,6 +62,10 @@ export const AuthProvider = ({ children }) => {
       const res = await registerUser(name, login, password);
       setIsAuth(true);
       navigate("/");
+      localStorage.setItem(
+        "userName",
+        JSON.stringify({ name: res.user.name, login: res.user.login })
+      );
       localStorage.setItem("token", res.user.token);
     } catch (error) {
       setError("Логин занят");
@@ -81,7 +89,7 @@ export const AuthProvider = ({ children }) => {
       login: "",
       password: "",
     });
-    setError('')
+    setError("");
   }
   const value = {
     loading,
@@ -92,7 +100,7 @@ export const AuthProvider = ({ children }) => {
     onSubmitRegister,
     stayIn,
     logOut,
-    resetForm
+    resetForm,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

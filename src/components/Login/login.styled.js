@@ -24,7 +24,7 @@ export const PopLoginContainer = styled.div`
 export const PopLoginBlock = styled.div`
   display: block;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: ${(props) => props.theme.backgroundHeader};
   max-width: 370px;
   width: 100%;
   padding: 50px 60px;
@@ -34,6 +34,7 @@ export const PopLoginBlock = styled.div`
 `;
 export const PopLoginTtl = styled.div`
   text-align: center;
+  width: 100%;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -41,6 +42,7 @@ export const PopLoginTtl = styled.div`
   margin-bottom: 20px;
   width: 45;
   height: 30;
+  color: ${(props) => props.theme.headerUserSet};
 `;
 export const PopLoginForm = styled.form`
   width: 100%;
@@ -112,6 +114,8 @@ export const PopLoginInputMail = styled.input`
   padding-bottom: 8px;
   padding-left: 10px;
   margin-bottom: 7px;
+  color: ${(props) => props.theme.headerSetMail};
+  background-color: ${(props) => props.theme.backgroundCard};
 `;
 export const PopLoginInputPassword = styled.input`
   border: 0.7px solid #94a6be66;
@@ -127,4 +131,6 @@ export const PopLoginInputPassword = styled.input`
   padding-bottom: 8px;
   padding-left: 10px;
   margin-bottom: 20px;
+  color: ${(props) => props.theme.headerSetMail};
+  background-color: ${(props) => props.theme.backgroundCard};
 `;
