@@ -34,7 +34,6 @@ export const AuthProvider = ({ children }) => {
     setError("");
     try {
       const res = await loginUser(login, password);
-      console.log(res);
       setIsAuth(true);
       navigate("/");
       localStorage.setItem(

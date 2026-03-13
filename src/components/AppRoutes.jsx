@@ -4,7 +4,7 @@ import { ExitPage } from "../pages/ExitPage/ExitPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 import { RegisterPage } from "../pages/RegisterPage/RegisterPage";
 import { GlobalStyle } from "../GlobalStyles";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 import { MainPage } from "../pages/MainPage/MainPage";
 import { NotFoundPage } from "../pages/NotFoundPage/NotFoundPage";
 import { NewCardPage } from "../pages/NewCardPage/NewCardPage";
@@ -13,12 +13,14 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 function AppRoutes() {
-  const { isAuth } = useContext(AuthContext);
-  const ProtectedRoute = ({ children }) => {
-    if (isAuth) {
-      return children;
+  const ProtectedRoute = () => {
+    const { isAuth } = useContext(AuthContext);
+
+    if (!isAuth) {
+      return <Navigate to="/login" replace />;
     }
-    return <Navigate to="/login" />;
+
+    return <Outlet />;
   };
 
   return (
@@ -28,6 +30,34 @@ function AppRoutes() {
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Header />
+                  <MainPage />
+                </>
+              }
+            >
+              <Route path="browse/:id" element={<PopBrowsePage />} />
+              <Route path="new-card" element={<NewCardPage />} />
+            </Route>
+
+            <Route
+              path="/card/:id"
+              element={
+                <>
+                  <Header />
+                  <CardPage />
+                </>
+              }
+            />
+
+            <Route path="/exit" element={<ExitPage />} />
+          </Route>
+
           <Route
             path="*"
             element={
@@ -37,32 +67,6 @@ function AppRoutes() {
               </>
             }
           />
-          {/* Публичные пути */}
-
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Header />
-                <MainPage />
-              </ProtectedRoute>
-            }
-          >
-            <Route path="exit" element={<ExitPage />} />
-            <Route path="new-card" element={<NewCardPage />} />
-            <Route path="browse/:id" element={<PopBrowsePage />}></Route>
-          </Route>
-          <Route
-            path="/card/:id"
-            element={
-              <ProtectedRoute>
-                <Header />
-                <CardPage />
-              </ProtectedRoute>
-            }
-          >
-            <Route path="browse" element={<PopBrowsePage />} />
-          </Route>
         </Routes>
       </div>
     </>

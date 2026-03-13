@@ -37,7 +37,9 @@ export default function Main() {
         <MainBlock>
           <MainContent>
             {loading ? (
-              columnNames.map((columnName) => <Loading name={columnName} />)
+              columnNames.map((columnName, index) => (
+                <Loading key={index} name={columnName} />
+              ))
             ) : tasks.length ? (
               columnNames.map((columnName, index) => (
                 <Column

@@ -53,6 +53,7 @@ export const TasksProvider = ({ children }) => {
       setErrorModal(error.message);
     } finally {
       setLoading(false);
+      fetchTasks();
     }
   }
   async function fetchNewTask(e) {
@@ -70,6 +71,7 @@ export const TasksProvider = ({ children }) => {
       setErrorModal(error.message);
     } finally {
       setLoading(false);
+      fetchTasks();
     }
   }
 
@@ -116,6 +118,7 @@ export const TasksProvider = ({ children }) => {
       setErrorModal(error.message);
     } finally {
       setLoading(false);
+      fetchTasks();
     }
   }
 

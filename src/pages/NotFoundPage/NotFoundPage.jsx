@@ -1,7 +1,9 @@
-export function NotFoundPage(){
-    return (
-        <div>
-            <h1>Страница не найдена</h1>
-        </div>
-    )
+import { NotFound } from "./NotFoundPage.styled";
+
+export function NotFoundPage() {
+  return (
+    <>
+      <NotFound>Страница не найдена</NotFound>
+    </>
+  );
 }
